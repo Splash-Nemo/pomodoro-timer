@@ -1,0 +1,17 @@
+:root{
+    font-size: 62.5%;
+    --color-background: linear-gradient(to right, #09203F, #537895);
+    --color-primary: purple;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    box-sizing: border-box;
+    min-width: 100vw;
+    min-height: 100vh;
+    background: var(--color-background);
+}
