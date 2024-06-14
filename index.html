@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Timer</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
-    <script src="script.js"></script>
+
+    <div id="bg-wrapper">
+        <img src="./Themes/ai-generated-8612487_1920.jpg" alt="" id="bg-image">
+    </div>
+
+    <div class="top">
+        <h1>Pomodoro Timer</h1>
+        <p class="by-line"> - by Splash Nemo</p>
+    </div>
+
+    <div class="pomodoro-container">
+        <div class="button-set-1">
+            <span class="pomodoro"> Pomodoro </span>
+            <span class="short-break"> Short Break </span>
+            <span class="long-break"> Long Break </span>
+        </div>
+        <div class="timer">
+            25:00
+        </div>
+        <div class="button-set-2">
+            <span class="start"> Start </span>
+            <span class="reset"><i class="fa-solid fa-arrow-rotate-left"></i></span>
+            <span class="settings"> <i class="fa-solid fa-gear"></i> </span>
+        </div>
+    </div>
+
+    <!--
+        Background, timer, song change left
+    -->
+
+    <script src="https://kit.fontawesome.com/031ed58609.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
 </body>
+
 </html>

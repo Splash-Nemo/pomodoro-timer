@@ -1,17 +1,87 @@
-:root{
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+:root {
     font-size: 62.5%;
     --color-background: linear-gradient(to right, #09203F, #537895);
     --color-primary: purple;
+    user-select: none;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
+    font-family: "Caveat", cursive;
+    box-sizing: border-box;
 }
 
-body{
-    box-sizing: border-box;
-    min-width: 100vw;
-    min-height: 100vh;
-    background: var(--color-background);
+body {
+    width: 100vw;
+    height: 100vh;
+    color: aliceblue;
+}
+
+#bg-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#bg-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+
+    filter: brightness(50%);
+}
+
+.top {
+    width: fit-content;
+    font-size: 2.5rem;
+    padding: 20px 40px 0;
+}
+
+.by-line{
+    text-align: right;
+}
+
+.pomodoro-container{
+    text-transform: lowercase;
+    font-weight: 700;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.pomodoro-container>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.pomodoro-container>div span{
+    margin: 0 30px;
+    cursor: pointer;
+    padding: 12px;
+    border: 2px solid transparent;
+}
+
+.pomodoro-container>div span:hover{
+    transform: scale(1.1);
+    border-top: 2px solid aliceblue;
+    border-bottom: 2px solid aliceblue;
+    border-radius: 10px;
+}
+
+.timer{
+    font-size: 15rem;
 }
