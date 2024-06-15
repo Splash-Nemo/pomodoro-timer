@@ -35,20 +35,27 @@ body {
     object-fit: cover;
     object-position: center;
 
-    filter: brightness(50%);
+    filter: brightness(70%);
 }
 
 .top {
-    width: fit-content;
+    width: 100%;
     font-size: 2.5rem;
     padding: 20px 40px 0;
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.by-line{
+.project {
+    width: fit-content;
+}
+
+.by-line {
     text-align: right;
 }
 
-.pomodoro-container{
+.pomodoro-container {
     text-transform: lowercase;
     font-weight: 700;
     font-size: 3rem;
@@ -61,27 +68,173 @@ body {
     text-align: center;
 }
 
-.pomodoro-container>div{
+.pomodoro-container>div {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 15px;
 }
 
-.pomodoro-container>div span{
+.pomodoro-container>div span {
     margin: 0 30px;
     cursor: pointer;
     padding: 12px;
     border: 2px solid transparent;
 }
 
-.pomodoro-container>div span:hover{
+.pomodoro-container>div span:hover {
     transform: scale(1.1);
     border-top: 2px solid aliceblue;
     border-bottom: 2px solid aliceblue;
     border-radius: 10px;
 }
 
-.timer{
+.timer {
     font-size: 15rem;
+}
+
+.container {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+}
+
+.semi-cont {
+    display: flex;
+    margin-bottom: 2px;
+}
+
+.more-songs {
+    font-size: 1.5rem;
+    text-align: center;
+
+    position: relative;
+    cursor: pointer;
+}
+
+.more-songs:hover {
+    background: rgba(254, 246, 246, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);
+}
+
+.thumb {
+    width: 50%;
+    overflow: hidden;
+}
+
+.song-controller {
+    width: 90%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.song-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: center;
+}
+
+.button {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.button i {
+    margin-left: 10px;
+    font-size: 1.3rem;
+}
+
+.songs-container{
+    display: none;
+}
+
+.songs-container.active {
+    position: absolute;
+    z-index: 100;
+
+    top: 22%;
+    right: 5px;
+
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 10px;
+
+    width: 29%;
+    animation: appear 300ms ease-in forwards;
+
+    padding: 10px;
+}
+
+@keyframes appear{
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}
+
+.songs-container .song{
+    width: 100%;
+    padding: 10px;
+    border: 4px solid aliceblue;
+    border-radius: 10px;
+
+    cursor: pointer;
+    overflow: hidden;
+}
+
+@keyframes appear{
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}
+
+.song img{
+    width: 100%;
+    margin-bottom: 5px;
+    object-fit: cover;
+}
+
+.song div{
+    text-align: center;
+    font-size: medium;
+}
+
+@media only screen and (max-width: 412px) {
+    /* Add your styles here */
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pomodoro-container {
+        margin-top: 100px;
+    }
+
+    .container {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+    }
+
+    .semi-cont {
+        width: 100%;
+    }
 }
