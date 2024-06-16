@@ -157,7 +157,7 @@ body {
     position: absolute;
     z-index: 100;
 
-    top: 22%;
+    top: 21%;
     right: 5px;
 
     background: rgba(255, 255, 255, 0.25);
@@ -179,10 +179,9 @@ body {
 }
 
 @keyframes appear{
-    from{
-        opacity: 0;
-    }to{
+    to{
         opacity: 1;
+        transform: translateY(1%);
     }
 }
 
@@ -191,17 +190,17 @@ body {
     padding: 10px;
     border: 4px solid aliceblue;
     border-radius: 10px;
+    filter: brightness(130%);
 
     cursor: pointer;
     overflow: hidden;
 }
 
-@keyframes appear{
-    from{
-        opacity: 0;
-    }to{
-        opacity: 1;
-    }
+.song:hover{
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .song img{
