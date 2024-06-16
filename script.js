@@ -8,6 +8,11 @@ const startPauseButton = document.querySelector(".start");
 const timer = document.querySelector(".timer");
 let reTimer = timer.textContent;
 
+function updateTimer(newTimer) {
+    timer.textContent = newTimer;
+    reTimer = timer.textContent;
+}
+
 let bellAudio = new Audio();
 bellAudio.src = "./bellSound/015828_school-bell-56309.mp3";
 
@@ -58,6 +63,13 @@ function executePauseFunction() {
     clearInterval(pomodoro);
 }
 
+// Reset Timer
+
+function resetTimer(){
+    timer.textContent = reTimer;
+    startPauseButton.textContent = " start ";
+    clearInterval(pomodoro);
+}
 // Bell Notification when timer reaches 0
 
 function playBellAudio() {
@@ -67,4 +79,36 @@ function playBellAudio() {
     timer.textContent = reTimer;
     startPauseButton.textContent = " start ";
   });
+}
+
+
+// Timer Change
+const pomodoroType = document.querySelector(".pomodoro");
+const shortBreakType = document.querySelector(".short-break");
+const longBreakType = document.querySelector(".long-break");
+
+// Pomodoro timer change
+function pomodoroTimer(){
+    pomodoroType.classList.add("type-active");
+    shortBreakType.classList.remove("type-active");
+    longBreakType.classList.remove("type-active");
+    updateTimer("25:00");
+    resetTimer();
+}
+
+// Short-Break timer change
+function shortBreakTimer(){
+    pomodoroType.classList.remove("type-active");
+    shortBreakType.classList.add("type-active");
+    longBreakType.classList.remove("type-active");
+    updateTimer("05:00");
+    resetTimer();
+}
+// Long-Break timer change
+function longBreakTimer(){
+    pomodoroType.classList.remove("type-active");
+    shortBreakType.classList.remove("type-active");
+    longBreakType.classList.add("type-active");
+    updateTimer("15:00");
+    resetTimer();
 }
