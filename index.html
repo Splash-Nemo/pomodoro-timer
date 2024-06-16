@@ -77,15 +77,15 @@
 
     <div class="pomodoro-container">
         <div class="button-set-1">
-            <span class="pomodoro"> Pomodoro </span>
-            <span class="short-break"> Short Break </span>
-            <span class="long-break"> Long Break </span>
+            <span class="pomodoro type-active" onclick="pomodoroTimer()"> Pomodoro </span>
+            <span class="short-break" onclick="shortBreakTimer()"> Short Break </span>
+            <span class="long-break" onclick="longBreakTimer()"> Long Break </span>
         </div>
         <div class="timer">25:00</div>
         <div class="button-set-2">
             <span class="start" onclick="startPauseFunction()"> start </span>
-            <span class="reset"><i class="fa-solid fa-arrow-rotate-left"></i></span>
-            <span class="settings"> <i class="fa-solid fa-gear"></i> </span>
+            <span class="reset" onclick="resetTimer()"><i class="fa-solid fa-arrow-rotate-left"></i></span>
+            <!-- <span class="settings"> <i class="fa-solid fa-gear"></i> </span> -->
         </div>
     </div>
 
