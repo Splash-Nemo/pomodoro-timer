@@ -138,17 +138,35 @@ for(let i=0; i<songs.length; i++){
     })
 }
 
+function playbgAudio(songElement) {
+    // Pause current audio
+    bgAudio.pause();
 
-function playbgAudio(songElement){
+    // Update UI with new song details
+    songTitle.textContent = songElement.title;
+    bgImgThumb.src = songElement.imgSrc;
+    bgAudio.src = songElement.audioSrc;
+
+    // Update play/pause button text and functionality
     if (bgAudio.paused) {
-        // If audio is paused, play it and update button text to "Pause" with an icon
+        bgPlayAudio.innerHTML = 'Play <i class="fa-solid fa-play"></i>';
+    } else {
+        bgPlayAudio.innerHTML = 'Pause <i class="fa-solid fa-pause"></i>';
+    }
+
+    // Clear existing click event listener on bgPlayAudio (if any)
+    bgPlayAudio.removeEventListener("click", togglePlayPause);
+
+    // Add new click event listener to toggle play/pause
+    bgPlayAudio.addEventListener("click", togglePlayPause);
+}
+
+function togglePlayPause() {
+    if (bgAudio.paused) {
         bgAudio.play();
         bgPlayAudio.innerHTML = 'Pause <i class="fa-solid fa-pause"></i>';
     } else {
-        // If audio is playing, pause it and update button text to "Play" with an icon
         bgAudio.pause();
         bgPlayAudio.innerHTML = 'Play <i class="fa-solid fa-play"></i>';
     }
-    songTitle.textContent = songElement.title;
-    bgImgThumb.src = songElement.imgSrc;
 }
