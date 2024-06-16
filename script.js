@@ -1,8 +1,3 @@
-const songListContainer = document.querySelector(".songs-container");
-function songListAppears() {
-  songListContainer.classList.toggle("active");
-}
-
 // Start Stop functionality
 const startPauseButton = document.querySelector(".start");
 const timer = document.querySelector(".timer");
@@ -111,4 +106,49 @@ function longBreakTimer(){
     longBreakType.classList.add("type-active");
     updateTimer("15:00");
     resetTimer();
+}
+
+// Song Functionality
+const songListContainer = document.querySelector(".songs-container");
+function songListAppears() {
+  songListContainer.classList.toggle("active");
+}
+
+const bgAudio = new Audio();
+const bgPlayAudio = document.querySelector(".button");
+const bgImgThumb = document.querySelector(".song-thumb");
+
+const songs = document.querySelectorAll(".song");
+const songList =[];
+const songThumbs = [
+    "./song-thumbnails/forest.jpg", "./song-thumbnails/waterfall.jpg", "./song-thumbnails/rain.jpg", "./song-thumbnails/train.jpg"
+]
+
+const songTitle = document.querySelector(".song-title");
+
+for(let i=0; i<songs.length; i++){
+    let songElement = songs[i];
+    let title = songElement.querySelector('div').textContent;
+    let imgSrc = songThumbs[i];
+    let audioSrc = songElement.querySelector('audio').src;
+
+    songList.push({title,imgSrc,audioSrc});
+    songElement.addEventListener("click", ()=>{
+        playbgAudio(songList[i]);
+    })
+}
+
+
+function playbgAudio(songElement){
+    if (bgAudio.paused) {
+        // If audio is paused, play it and update button text to "Pause" with an icon
+        bgAudio.play();
+        bgPlayAudio.innerHTML = 'Pause <i class="fa-solid fa-pause"></i>';
+    } else {
+        // If audio is playing, pause it and update button text to "Play" with an icon
+        bgAudio.pause();
+        bgPlayAudio.innerHTML = 'Play <i class="fa-solid fa-play"></i>';
+    }
+    songTitle.textContent = songElement.title;
+    bgImgThumb.src = songElement.imgSrc;
 }
