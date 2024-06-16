@@ -75,14 +75,14 @@ body {
     margin: 15px;
 }
 
-.pomodoro-container>div span {
+.button-set-2>span, .pomodoro, .short-break, .long-break {
     margin: 0 30px;
     cursor: pointer;
     padding: 12px;
     border: 2px solid transparent;
 }
 
-.pomodoro-container>div span:hover {
+.pomodoro-container>div span:not(.type-active):hover {
     transform: scale(1.1);
     border-top: 2px solid aliceblue;
     border-bottom: 2px solid aliceblue;
@@ -91,6 +91,13 @@ body {
 
 .timer {
     font-size: 15rem;
+}
+
+.type-active {
+    transform: scale(1.1);
+    border-top: 5px solid aliceblue;
+    border-bottom: 5px solid aliceblue;
+    border-radius: 10px;
 }
 
 .container {
